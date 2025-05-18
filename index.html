@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>מערכת הזנת ציונים לפרויקט רשתות</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <style>
         body {
             direction: rtl;
@@ -35,37 +35,39 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label">ת.ז:</label>
-                <input type="text" class="form-control" id="studentId">
+                <input type="text" class="form-control" id="studentId" maxlength="9">
             </div>
         </div>
     </div>
 
+    <!-- Book (30%) -->
     <div class="form-section">
         <h3 class="form-title">חלק הספר (30%)</h3>
         <div class="row g-3">
-            <div class="col-md-3" ><label class="form-label">מבוא (2)</label><input type="number" class="form-control" id="b1"></div>
-            <div class="col-md-3" ><label class="form-label">תוכן עניינים (2)</label><input type="number" class="form-control" id="b2"></div>
-            <div class="col-md-3" ><label class="form-label">אודות ותרשים (4)</label><input type="number" class="form-control" id="b3"></div>
-            <div class="col-md-3" ><label class="form-label">דרישות מערכת (6)</label><input type="number" class="form-control" id="b4"></div>
-            <div class="col-md-3" ><label class="form-label">טופולוגיה (6)</label><input type="number" class="form-control" id="b5"></div>
-            <div class="col-md-3" ><label class="form-label">תיעוד רכיבים (20)</label><input type="number" class="form-control" id="b6"></div>
-            <div class="col-md-3" ><label class="form-label">הגדרות CLI וכו' (30)</label><input type="number" class="form-control" id="b7"></div>
-            <div class="col-md-3" ><label class="form-label">ניתוב \מטרו\צילומים (20)</label><input type="number" class="form-control" id="b8"></div>
-            <div class="col-md-3" ><label class="form-label">פקודות show ורפלקציה (10)</label><input type="number" class="form-control" id="b9"></div>
+            <div class="col-md-3"><label class="form-label">מבוא (2)</label><input type="number" class="form-control" id="b1" max="2" min="0"></div>
+            <div class="col-md-3"><label class="form-label">תוכן עניינים (2)</label><input type="number" class="form-control" id="b2" max="2" min="0"></div>
+            <div class="col-md-3"><label class="form-label">אודות ותרשים (4)</label><input type="number" class="form-control" id="b3" max="4" min="0"></div>
+            <div class="col-md-3"><label class="form-label">דרישות מערכת (6)</label><input type="number" class="form-control" id="b4" max="6" min="0"></div>
+            <div class="col-md-3"><label class="form-label">טופולוגיה (6)</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
+            <div class="col-md-3"><label class="form-label">תיעוד רכיבים (20)</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
+            <div class="col-md-3"><label class="form-label">הגדרות CLI וכו' (30)</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
+            <div class="col-md-3"><label class="form-label">ניתוב סטטי (20)</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
+            <div class="col-md-3"><label class="form-label">פקודות show ורפלקציה (10)</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
         </div>
     </div>
 
+    <!-- Presentation (70%) -->
     <div class="form-section">
         <h3 class="form-title">חלק ההצגה (70%)</h3>
         <div class="row g-3">
-            <div class="col-md-3"><label class="form-label">שליטה בפרויקט (5)</label><input type="number" class="form-control" id="p1"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p2"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p3"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p4"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15)</label><input type="number" class="form-control" id="p5"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15)</label><input type="number" class="form-control" id="p6"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב/ג (15)</label><input type="number" class="form-control" id="p7"></div>
-            <div class="col-md-3"><label class="form-label">מטלת ביצוע (20)</label><input type="number" class="form-control" id="p8"></div>
+            <div class="col-md-3"><label class="form-label">שליטה בפרויקט (5)</label><input type="number" class="form-control" id="p1" max="5" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p2" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p3" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10)</label><input type="number" class="form-control" id="p4" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15)</label><input type="number" class="form-control" id="p5" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15)</label><input type="number" class="form-control" id="p6" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב/ג (15)</label><input type="number" class="form-control" id="p7" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">מטלת ביצוע (20)</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
         </div>
     </div>
 
@@ -81,7 +83,37 @@
         return ids.reduce((sum, id) => sum + (parseFloat(document.getElementById(id).value) || 0), 0);
     }
 
+    function clampInputs() {
+        const inputs = document.querySelectorAll("input[type='number']");
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const val = parseFloat(input.value);
+                const max = parseFloat(input.max);
+                const min = parseFloat(input.min);
+                if (val > max) input.value = max;
+                if (val < min) input.value = min;
+            });
+        });
+    }
+
     function calculateFinal() {
+        const studentId = document.getElementById("studentId").value;
+        if (!/^\d{9}$/.test(studentId)) {
+            alert("תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+            return;
+        }
+
+        const allInputs = document.querySelectorAll("input[type='number']");
+        for (let input of allInputs) {
+            const val = parseFloat(input.value);
+            const max = parseFloat(input.max);
+            const min = parseFloat(input.min);
+            if (val < min || val > max) {
+                alert(`הציון בשדה '${input.previousElementSibling.textContent.trim()}' חייב להיות בין ${min} ל-${max}`);
+                return;
+            }
+        }
+
         const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
         const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
 
@@ -91,6 +123,8 @@
 
         document.getElementById("result").textContent = `הציון הסופי של ${document.getElementById("studentName").value} הוא ${finalMark}`;
     }
+
+    window.onload = clampInputs;
 </script>
 </body>
 </html>
