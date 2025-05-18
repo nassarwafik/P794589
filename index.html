@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Project Marks</title>
+  <style>
+    body { font-family: Arial; direction: rtl; text-align: right; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    input[type="number"] { width: 80px; }
+    .btn { margin-top: 10px; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <h2>מערכת ציונים - פרויקט תקשורת</h2>
+  
+  <div>
+    <label>שם תלמיד: <input type="text" id="name"></label><br>
+    <label>תעודת זהות: <input type="text" id="id"></label><br>
+    <label>ציון ספר פרויקט (30%): <input type="number" id="book"></label><br>
+    <label>ציון הצגה (70%): <input type="number" id="presentation"></label><br>
+    <button class="btn" onclick="addStudent()">הוסף תלמיד</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>שם תלמיד</th>
+        <th>ת.ז</th>
+        <th>ספר (30%)</th>
+        <th>הצגה (70%)</th>
+        <th>ציון סופי</th>
+      </tr>
+    </thead>
+    <tbody id="studentsTable"></tbody>
+  </table>
+
+  <script>
+    function addStudent() {
+      const name = document.getElementById("name").value;
+      const id = document.getElementById("id").value;
+      const book = parseFloat(document.getElementById("book").value) || 0;
+      const pres = parseFloat(document.getElementById("presentation").value) || 0;
+      const final = (book * 0.3 + pres * 0.7).toFixed(2);
+
+      const table = document.getElementById("studentsTable");
+      const row = `<tr>
+        <td>${name}</td>
+        <td>${id}</td>
+        <td>${book}</td>
+        <td>${pres}</td>
+        <td>${final}</td>
+      </tr>`;
+      table.innerHTML += row;
+
+      // Clear inputs
+      document.getElementById("name").value = "";
+      document.getElementById("id").value = "";
+      document.getElementById("book").value = "";
+      document.getElementById("presentation").value = "";
+    }
+  </script>
+</body>
+</html>
