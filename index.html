@@ -25,10 +25,26 @@
         input[type="text"], input[type="number"] {
             font-weight: bold;
         }
+        .mark-display {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #d4edda;
+            color: #155724;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 79458</h2>
+    </div>
     <div class="form-section">
         <h2 class="form-title">פרטי תלמיד</h2>
         <div class="row mb-3">
@@ -53,11 +69,12 @@
             <div class="col-md-3"><label class="form-label">טופולוגיה (6)</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
             <div class="col-md-3"><label class="form-label">תיעוד רכיבים (20)</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
             <div class="col-md-3"><label class="form-label">הגדרות CLI וכו' (30)</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
-            <div class="col-md-3"><label class="form-label">ניתוב\מטרו\צילומי מסך (20)</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
+            <div class="col-md-3"><label class="form-label">ניתוב סטטי (20)</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
             <div class="col-md-3"><label class="form-label">פקודות show ורפלקציה (10)</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
         </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה"כ חלק הספר: </span><span id="bookTotalDisplay">0</span>
+            <span class="fw-bold">סה"כ חלק הספר: </span>
+            <span id="bookTotalDisplay" class="mark-display">0</span>
         </div>
     </div>
 
@@ -74,7 +91,8 @@
             <div class="col-md-3"><label class="form-label">מטלת ביצוע (20)</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
         </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה"כ חלק ההצגה: </span><span id="presentationTotalDisplay">0</span>
+            <span class="fw-bold">סה"כ חלק ההצגה: </span>
+            <span id="presentationTotalDisplay" class="mark-display">0</span>
         </div>
     </div>
 
@@ -82,7 +100,10 @@
         <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
     </div>
 
-    <div class="alert alert-info mt-4 text-center" id="result"></div>
+    <div class="text-center mt-4">
+        <span class="fw-bold">הציון הסופי:</span>
+        <span id="finalDisplay" class="mark-display">0</span>
+    </div>
 </div>
 
 <script>
@@ -142,8 +163,7 @@
 
         document.getElementById("bookTotalDisplay").textContent = bookTotal;
         document.getElementById("presentationTotalDisplay").textContent = presTotal;
-
-        document.getElementById("result").textContent = `הציון הסופי של ${document.getElementById("studentName").value} הוא ${finalMark}`;
+        document.getElementById("finalDisplay").textContent = finalMark;
     }
 
     window.onload = clampInputs;
