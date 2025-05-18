@@ -1,64 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
-  <meta charset="UTF-8">
-  <title>Student Project Marks</title>
-  <style>
-    body { font-family: Arial; direction: rtl; text-align: right; padding: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px; }
-    input[type="number"] { width: 80px; }
-    .btn { margin-top: 10px; padding: 8px 12px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>מערכת הזנת ציונים לפרויקט רשתות</title>
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl;
+            margin: 40px;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="number"] {
+            width: 80px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h2>מערכת ציונים - פרויקט תקשורת</h2>
-  
-  <div>
-    <label>שם תלמיד: <input type="text" id="name"></label><br>
-    <label>תעודת זהות: <input type="text" id="id"></label><br>
-    <label>ציון ספר פרויקט (30%): <input type="number" id="book"></label><br>
-    <label>ציון הצגה (70%): <input type="number" id="presentation"></label><br>
-    <button class="btn" onclick="addStudent()">הוסף תלמיד</button>
-  </div>
+    <h2>הזנת ציוני פרויקט וייצוג</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>שם תלמיד</th>
-        <th>ת.ז</th>
-        <th>ספר (30%)</th>
-        <th>הצגה (70%)</th>
-        <th>ציון סופי</th>
-      </tr>
-    </thead>
-    <tbody id="studentsTable"></tbody>
-  </table>
+    <label>שם התלמיד: <input type="text" id="studentName"></label>
+    <label>ת.ז: <input type="text" id="studentId"></label>
 
-  <script>
-    function addStudent() {
-      const name = document.getElementById("name").value;
-      const id = document.getElementById("id").value;
-      const book = parseFloat(document.getElementById("book").value) || 0;
-      const pres = parseFloat(document.getElementById("presentation").value) || 0;
-      const final = (book * 0.3 + pres * 0.7).toFixed(2);
+    <h3>חלק הספר (30%)</h3>
+    <label>מבוא (2): <input type="number" id="b1"></label>
+    <label>תוכן עניינים (2): <input type="number" id="b2"></label>
+    <label>אודות ותרשים (4): <input type="number" id="b3"></label>
+    <label>דרישות מערכת (6): <input type="number" id="b4"></label>
+    <label>טופולוגיה (6): <input type="number" id="b5"></label>
+    <label>תיעוד רכיבים (20): <input type="number" id="b6"></label>
+    <label>הגדרות CLI וכו' (30): <input type="number" id="b7"></label>
+    <label>ניתוב סטטי (20): <input type="number" id="b8"></label>
+    <label>פקודות show ורפלקציה (10): <input type="number" id="b9"></label>
 
-      const table = document.getElementById("studentsTable");
-      const row = `<tr>
-        <td>${name}</td>
-        <td>${id}</td>
-        <td>${book}</td>
-        <td>${pres}</td>
-        <td>${final}</td>
-      </tr>`;
-      table.innerHTML += row;
+    <h3>חלק ההצגה (70%)</h3>
+    <label>שליטה בפרויקט (5): <input type="number" id="p1"></label>
+    <label>שאלה רמה א (10): <input type="number" id="p2"></label>
+    <label>שאלה רמה א (10): <input type="number" id="p3"></label>
+    <label>שאלה רמה א (10): <input type="number" id="p4"></label>
+    <label>שאלה רמה ב (15): <input type="number" id="p5"></label>
+    <label>שאלה רמה ב (15): <input type="number" id="p6"></label>
+    <label>שאלה רמה ב/ג (15): <input type="number" id="p7"></label>
+    <label>מטלת ביצוע (20): <input type="number" id="p8"></label>
 
-      // Clear inputs
-      document.getElementById("name").value = "";
-      document.getElementById("id").value = "";
-      document.getElementById("book").value = "";
-      document.getElementById("presentation").value = "";
-    }
-  </script>
+    <button onclick="calculateFinal()">חשב ציון סופי</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function sumMarks(ids) {
+            return ids.reduce((sum, id) => sum + (parseFloat(document.getElementById(id).value) || 0), 0);
+        }
+
+        function calculateFinal() {
+            const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
+            const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
+
+            const bookTotal = sumMarks(bookIds);
+            const presTotal = sumMarks(presIds);
+            const finalMark = (bookTotal * 0.3 + presTotal * 0.7).toFixed(2);
+
+            document.getElementById("result").textContent = `הציון הסופי של ${document.getElementById("studentName").value} הוא ${finalMark}`;
+        }
+    </script>
 </body>
 </html>
