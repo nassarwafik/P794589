@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>מערכת הזנת ציונים לפרויקט רשתות</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-     <style>
+    <style>
         body {
             direction: rtl;
             background-color: #f8f9fa;
@@ -23,9 +23,9 @@
             border-bottom: 2px solid #dee2e6;
             padding-bottom: 10px;
         }
-        input[type="text"], input[type="number"] {
+        input[type="text"], input[type="number"], input[type="date"] {
             font-weight: bold;
-            font-size: 1.25rem; /* Large text */
+            font-size: 1.25rem;
         }
         .mark-display {
             display: inline-block;
@@ -37,7 +37,7 @@
             background-color: #d4edda;
             color: #155724;
             font-weight: bold;
-            font-size: 32px; /* Larger marks */
+            font-size: 32px;
             margin: 10px;
         }
         @media (max-width: 576px) {
@@ -47,10 +47,10 @@
                 line-height: 70px;
                 font-size: 20px;
             }
-            input[type="text"], input[type="number"] {
-               font-size: 1.4rem !important;  /* إجبار حجم أكبر */
-               height: 3rem;                  /* زيادة الارتفاع */
-           }
+            input[type="text"], input[type="number"], input[type="date"] {
+                font-size: 1.6rem !important;
+                height: 3.5rem;
+            }
         }
     </style>
 </head>
@@ -62,6 +62,22 @@
     </div>
 
     <div class="form-section">
+        <!-- معلومات المدرسة والتاريخ -->
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">שם בית הספר:</label>
+                <input type="text" class="form-control" id="schoolName">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">סמל בית הספר:</label>
+                <input type="text" class="form-control" id="schoolCode">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">תאריך בחינה:</label>
+                <input type="date" class="form-control" id="examDate">
+            </div>
+        </div>
+
         <h2 class="form-title">פרטי תלמיד</h2>
         <div class="row mb-3">
             <div class="col-md-6">
@@ -75,51 +91,64 @@
         </div>
     </div>
 
+    <!-- חלק הספר -->
     <div class="form-section">
         <h3 class="form-title">חלק הספר (30%)</h3>
         <div class="row g-3" id="bookInputs">
-        <div class="col-md-3"><label class="form-label">מבוא (2 נק')</label><input type="number" class="form-control" id="b1" max="2" min="0"></div>
-        <div class="col-md-3"><label class="form-label">תוכן עניינים (2 נק')</label><input type="number" class="form-control" id="b2" max="2" min="0"></div>
-        <div class="col-md-3"><label class="form-label">אודות ותרשים (4 נק')</label><input type="number" class="form-control" id="b3" max="4" min="0"></div>
-        <div class="col-md-3"><label class="form-label">דרישות מערכת (6 נק')</label><input type="number" class="form-control" id="b4" max="6" min="0"></div>
-        <div class="col-md-3"><label class="form-label">טופולוגיה (6 נק')</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
-        <div class="col-md-3"><label class="form-label">תיעוד רכיבים (20 נק')</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
-        <div class="col-md-3"><label class="form-label">הגדרות CLI וכו' (30 נק')</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
-        <div class="col-md-3"><label class="form-label">ניתוב\מטרו\צילומי מסך (20 נק')</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
-        <div class="col-md-3"><label class="form-label">פקודות show ורפלקציה (10 נק')</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
-    </div>
+            <div class="col-md-3"><label class="form-label">מבוא (2 נק')</label><input type="number" class="form-control" id="b1" max="2" min="0"></div>
+            <div class="col-md-3"><label class="form-label">תוכן עניינים (2 נק')</label><input type="number" class="form-control" id="b2" max="2" min="0"></div>
+            <div class="col-md-3"><label class="form-label">אודות ותרשים (4 נק')</label><input type="number" class="form-control" id="b3" max="4" min="0"></div>
+            <div class="col-md-3"><label class="form-label">דרישות מערכת (6 נק')</label><input type="number" class="form-control" id="b4" max="6" min="0"></div>
+            <div class="col-md-3"><label class="form-label">טופולוגיה (6 נק')</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
+            <div class="col-md-3"><label class="form-label">תיעוד רכיבים (20 נק')</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
+            <div class="col-md-3"><label class="form-label">הגדרות CLI וכו' (30 נק')</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
+            <div class="col-md-3"><label class="form-label">ניתוב\מטרו\צילומי מסך (20 נק')</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
+            <div class="col-md-3"><label class="form-label">פקודות show ורפלקציה (10 נק')</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
+        </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה\"כ חלק הספר: </span>
+            <span class="fw-bold">סה"כ חלק הספר: </span>
             <span id="bookTotalDisplay" class="mark-display">0</span>
         </div>
     </div>
 
+    <!-- חלק ההצגה -->
     <div class="form-section">
         <h3 class="form-title">חלק ההצגה (70%)</h3>
         <div class="row g-3" id="presentationInputs">
-        <div class="col-md-3"><label class="form-label">שליטה בפרויקט (5 נק')</label><input type="number" class="form-control" id="p1" max="5" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p2" max="10" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p3" max="10" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p4" max="10" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p5" max="15" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p6" max="15" min="0"></div>
-        <div class="col-md-3"><label class="form-label">שאלה רמה ב/ג (15 נק')</label><input type="number" class="form-control" id="p7" max="15" min="0"></div>
-        <div class="col-md-3"><label class="form-label">מטלת ביצוע (20 נק')</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
-    </div>
+            <div class="col-md-3"><label class="form-label">שליטה בפרויקט (5 נק')</label><input type="number" class="form-control" id="p1" max="5" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p2" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p3" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p4" max="10" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p5" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p6" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">שאלה רמה ב/ג (15 נק')</label><input type="number" class="form-control" id="p7" max="15" min="0"></div>
+            <div class="col-md-3"><label class="form-label">מטלת ביצוע (20 נק')</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
+        </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה\"כ חלק ההצגה: </span>
+            <span class="fw-bold">סה"כ חלק ההצגה: </span>
             <span id="presentationTotalDisplay" class="mark-display">0</span>
         </div>
     </div>
 
+    <!-- زر حساب -->
     <div class="text-center">
         <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
     </div>
 
+    <!-- النتائج -->
     <div class="text-center mt-4">
         <span class="fw-bold">הציון הסופי:</span>
         <span id="finalDisplay" class="mark-display">0</span>
     </div>
+
+    <!-- عرض المعلومات للطباعة -->
+    <div class="text-center mt-4 d-print-block">
+        <p class="fw-bold">בית הספר: <span id="schoolNameDisplay"></span></p>
+        <p class="fw-bold">סמל בית הספר: <span id="schoolCodeDisplay"></span></p>
+        <p class="fw-bold">תאריך הבחינה: <span id="examDateDisplay"></span></p>
+    </div>
+
+    <!-- زر الحفظ -->
     <div class="text-center mb-4">
         <button class="btn btn-success mb-3" onclick="window.print()">שמור כ-PDF / הדפס</button>
     </div>
@@ -179,6 +208,11 @@
         document.getElementById("bookTotalDisplay").textContent = bookTotal;
         document.getElementById("presentationTotalDisplay").textContent = presTotal;
         document.getElementById("finalDisplay").textContent = finalMark;
+
+        // تحديث بيانات المدرسة للطباعة
+        document.getElementById("schoolNameDisplay").textContent = document.getElementById("schoolName").value;
+        document.getElementById("schoolCodeDisplay").textContent = document.getElementById("schoolCode").value;
+        document.getElementById("examDateDisplay").textContent = document.getElementById("examDate").value;
     }
 
     window.onload = clampInputs;
