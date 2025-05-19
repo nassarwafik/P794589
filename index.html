@@ -55,11 +55,10 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="text-center mb-4">
-        <img src="tekshoveM.png" alt="school logo" width="120" class="mb-2">
-        <h2 class="fw-bold fs-5 fs-md-3">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
-    </div>
+<header class="text-center mb-4">
+    <img src="tekshoveM.png" alt="school logo" width="120" class="mb-2">
+    <h2 class="fw-bold fs-5 fs-md-3">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
+</header>
 
     <div class="form-section">
         <div class="row mb-3">
@@ -147,7 +146,9 @@
     </div>
    </div>
 </div>
-
+<footer class="text-center mt-5 pt-3 border-top text-muted">
+    <p class="mb-0">Nassar Wafik © 2024 - 2025</p>
+</footer>
 <script>
     function sumMarks(ids) {
         return ids.reduce((sum, id) => sum + (parseFloat(document.getElementById(id).value) || 0), 0);
@@ -217,5 +218,6 @@
 
     window.onload = clampInputs;
 </script>
+    
 </body>
 </html>
