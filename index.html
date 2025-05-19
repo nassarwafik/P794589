@@ -62,7 +62,6 @@
     </div>
 
     <div class="form-section">
-        <!-- معلومات المدرسة والتاريخ -->
         <div class="row mb-3">
             <div class="col-md-4">
                 <label class="form-label">שם בית הספר:</label>
@@ -91,7 +90,6 @@
         </div>
     </div>
 
-    <!-- חלק הספר -->
     <div class="form-section">
         <h3 class="form-title">חלק הספר (30%)</h3>
         <div class="row g-3" id="bookInputs">
@@ -111,7 +109,6 @@
         </div>
     </div>
 
-    <!-- חלק ההצגה -->
     <div class="form-section">
         <h3 class="form-title">חלק ההצגה (70%)</h3>
         <div class="row g-3" id="presentationInputs">
@@ -129,32 +126,26 @@
             <span id="presentationTotalDisplay" class="mark-display">0</span>
         </div>
     </div>
-
-       
- <div class="form-section">
-    <!-- زر حساب -->
+   <div class="form-section">
     <div class="text-center">
         <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
     </div>
 
-    <!-- النتائج -->
     <div class="text-center mt-4">
         <span class="fw-bold">הציון הסופי:</span>
         <span id="finalDisplay" class="mark-display">0</span>
     </div>
 
-    <!-- عرض المعلومات للطباعة -->
     <div class="text-center mt-4 d-print-block">
         <p class="fw-bold">בית הספר: <span id="schoolNameDisplay"></span></p>
         <p class="fw-bold">סמל בית הספר: <span id="schoolCodeDisplay"></span></p>
         <p class="fw-bold">תאריך הבחינה: <span id="examDateDisplay"></span></p>
     </div>
 
-    <!-- زر الحفظ -->
     <div class="text-center mb-4">
         <button class="btn btn-success mb-3" onclick="window.print()">שמור כ-PDF / הדפס</button>
     </div>
-</div>
+   </div>
 </div>
 
 <script>
@@ -191,11 +182,11 @@
             alert("תעודת זהות חייבת להכיל בדיוק 9 ספרות");
             return;
         }
+
         const schoolCode = document.getElementById("schoolCode").value;
-         if (!/^\d{6}$/.test(schoolCode)) {
-           alert("סמל בית הספר חייב להכיל בדיוק 6 ספרות");
-           return;
-           }    
+        if (!/^\d{6}$/.test(schoolCode)) {
+            alert("סמל בית הספר חייב להכיל בדיוק 6 ספרות");
+            return;
         }
 
         const allInputs = document.querySelectorAll("input[type='number']");
@@ -213,14 +204,14 @@
         const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
         const bookTotal = sumMarks(bookIds);
         const presTotal = sumMarks(presIds);
-        const finalMark = Math.round((bookTotal * 0.3 + presTotal * 0.7).toFixed(2));
+        const finalMark = Math.round(bookTotal * 0.3 + presTotal * 0.7);
         document.getElementById("bookTotalDisplay").textContent = bookTotal;
         document.getElementById("presentationTotalDisplay").textContent = presTotal;
         document.getElementById("finalDisplay").textContent = finalMark;
 
         // تحديث بيانات المدرسة للطباعة
         document.getElementById("schoolNameDisplay").textContent = document.getElementById("schoolName").value;
-        document.getElementById("schoolCodeDisplay").textContent = document.getElementById("schoolCode").value;
+        document.getElementById("schoolCodeDisplay").textContent = schoolCode;
         document.getElementById("examDateDisplay").textContent = document.getElementById("examDate").value;
     }
 
