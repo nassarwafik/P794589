@@ -68,11 +68,11 @@
     </style>
 </head>
 <body>
-<div class="container">    
-<header class="text-center custom-header">
-    <img src="tekshoveM.png" alt="school logo" width="120" class="mb-2">
-    <h2 class="fw-bold fs-5 fs-md-3">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
-</header>
+<div class="container">
+    <header class="text-center custom-header">
+        <img src="tekshoveM.png" alt="school logo" width="120" class="mb-2">
+        <h2 class="fw-bold fs-5 fs-md-3">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
+    </header>
 
     <div class="form-section">
          <h2 class="form-title">פרטי בחינה </h2>
@@ -160,9 +160,10 @@
         <button class="btn btn-success mb-3" onclick="window.print()">שמור כ-PDF / הדפס</button>
     </div>
    </div>
- <footer class="text-center mt-5 pt-3 custom-footer">
-    <p class="mb-0">Nassar Wafik © 2024 - 2025</p>
-</footer>      
+
+    <footer class="text-center mt-5 pt-3 custom-footer">
+        <p class="mb-0">Nassar Wafik © 2024 - 2025</p>
+    </footer>
 </div>
 
 <script>
@@ -226,14 +227,42 @@
         document.getElementById("presentationTotalDisplay").textContent = presTotal;
         document.getElementById("finalDisplay").textContent = finalMark;
 
-        // تحديث بيانات المدرسة للطباعة
         document.getElementById("schoolNameDisplay").textContent = document.getElementById("schoolName").value;
         document.getElementById("schoolCodeDisplay").textContent = schoolCode;
         document.getElementById("examDateDisplay").textContent = document.getElementById("examDate").value;
     }
 
+    function saveBookMark() {
+        const id = document.getElementById("studentId").value;
+        const name = document.getElementById("studentName").value;
+        const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
+        const bookMark = sumMarks(bookIds);
+
+        if (!/^\d{9}$/.test(id)) {
+            alert("תעודת זהות חייבת להכיל 9 ספרות");
+            return;
+        }
+
+        const data = JSON.parse(localStorage.getItem("studentsData") || "{}");
+        data[id] = { studentName: name, bookMark: bookMark };
+        localStorage.setItem("studentsData", JSON.stringify(data));
+
+        alert("ציון חלק הספר נשמר בהצלחה");
+    }
+
+    function loadStudentData() {
+        const id = document.getElementById("studentId").value;
+        const data = JSON.parse(localStorage.getItem("studentsData") || "{}");
+        if (data[id]) {
+            document.getElementById("studentName").value = data[id].studentName;
+            document.getElementById("bookTotalDisplay").textContent = data[id].bookMark;
+            alert("הנתונים נטענו בהצלחה. ניתן להמשיך לחלק ההצגה.");
+        } else {
+            alert("לא נמצאו נתונים לתעודת זהות זו.");
+        }
+    }
+
     window.onload = clampInputs;
 </script>
- 
 </body>
 </html>
