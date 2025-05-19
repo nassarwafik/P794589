@@ -100,6 +100,9 @@
             <div class="col-md-6">
                 <label class="form-label">ת.ז:</label>
                 <input type="text" class="form-control" id="studentId" maxlength="9">
+                    <div class="text-center mb-4">
+                    <button class="btn btn-info" onclick="loadStudentData()">טען נתוני תלמיד</button>
+                </div>
             </div>
         </div>
     </div>
@@ -121,6 +124,9 @@
             <span class="fw-bold">סה"כ חלק הספר: </span>
             <span id="bookTotalDisplay" class="mark-display">0</span>
         </div>
+          <div class="text-center mb-4">
+            <button class="btn btn-warning me-2" onclick="saveBookMark()">שמור ציון חלק הספר</button>
+          </div>
     </div>
 
     <div class="form-section">
@@ -162,10 +168,7 @@
    </div>
 
     <!-- أزرار حفظ وتحميل بيانات الطالب -->
-    <div class="text-center mb-4">
-        <button class="btn btn-warning me-2" onclick="saveBookMark()">שמור ציון חלק הספר</button>
-        <button class="btn btn-info" onclick="loadStudentData()">טען נתוני תלמיד</button>
-    </div>
+
 
     <footer class="text-center mt-5 pt-3 custom-footer">
         <p class="mb-0">Nassar Wafik © 2024 - 2025</p>
