@@ -130,6 +130,8 @@
         </div>
     </div>
 
+       
+ <div class="form-section">
     <!-- زر حساب -->
     <div class="text-center">
         <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
@@ -152,6 +154,7 @@
     <div class="text-center mb-4">
         <button class="btn btn-success mb-3" onclick="window.print()">שמור כ-PDF / הדפס</button>
     </div>
+</div>
 </div>
 
 <script>
@@ -210,7 +213,7 @@
         const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
         const bookTotal = sumMarks(bookIds);
         const presTotal = sumMarks(presIds);
-        const finalMark = (bookTotal * 0.3 + presTotal * 0.7).toFixed(2);
+        const finalMark = Math.round((bookTotal * 0.3 + presTotal * 0.7).toFixed(2));
         document.getElementById("bookTotalDisplay").textContent = bookTotal;
         document.getElementById("presentationTotalDisplay").textContent = presTotal;
         document.getElementById("finalDisplay").textContent = finalMark;
