@@ -40,19 +40,6 @@
             font-size: 32px;
             margin: 10px;
         }
-        header.custom-header {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px 0;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        footer.custom-footer {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px 0;
-            border-radius: 12px;
-        }
         @media (max-width: 576px) {
             .mark-display {
                 width: 70px;
@@ -69,110 +56,85 @@
 </head>
 <body>
 <div class="container">
-    <header class="text-center custom-header">
-        <img src="tekshoveM.png" alt="school logo" width="120" class="mb-2">
-        <h2 class="fw-bold fs-5 fs-md-3">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
-    </header>
+    <h2 class="text-center mb-4">הערכת פרויקטים ברשתות תקשורת, 5 יח"ל – סמל שאלון: 794589</h2>
 
     <div class="form-section">
-         <h2 class="form-title">פרטי בחינה </h2>
+        <h4 class="form-title">פרטי בית ספר ובחינה</h4>
         <div class="row mb-3">
             <div class="col-md-4">
-                <label class="form-label">שם בית הספר:</label>
+                <label>שם בית הספר:</label>
                 <input type="text" class="form-control" id="schoolName">
             </div>
             <div class="col-md-4">
-                <label class="form-label">סמל בית הספר:</label>
+                <label>סמל בית ספר:</label>
                 <input type="text" class="form-control" id="schoolCode" maxlength="6">
             </div>
             <div class="col-md-4">
-                <label class="form-label">תאריך בחינה:</label>
+                <label>תאריך בחינה:</label>
                 <input type="date" class="form-control" id="examDate">
             </div>
         </div>
+    </div>
 
-        <h2 class="form-title">פרטי תלמיד</h2>
+    <div class="form-section">
+        <h4 class="form-title">פרטי תלמיד</h4>
         <div class="row mb-3">
             <div class="col-md-6">
-                <label class="form-label">שם התלמיד:</label>
+                <label>שם התלמיד:</label>
                 <input type="text" class="form-control" id="studentName">
             </div>
             <div class="col-md-6">
-                <label class="form-label">ת.ז:</label>
+                <label>ת.ז:</label>
                 <input type="text" class="form-control" id="studentId" maxlength="9">
-                    <div class="text-center mb-4">
-                    <button class="btn btn-info" onclick="loadStudentData()">טען נתוני תלמיד</button>
-                </div>
             </div>
         </div>
     </div>
 
     <div class="form-section">
-        <h3 class="form-title">חלק הספר (30%)</h3>
-        <div class="row g-3" id="bookInputs">
-            <div class="col-md-3"><label class="form-label">מבוא (2 נק')</label><input type="number" class="form-control" id="b1" max="2" min="0"></div>
-            <div class="col-md-3"><label class="form-label">תוכן עניינים (2 נק')</label><input type="number" class="form-control" id="b2" max="2" min="0"></div>
-            <div class="col-md-3"><label class="form-label">אודות ותרשים (4 נק')</label><input type="number" class="form-control" id="b3" max="4" min="0"></div>
-            <div class="col-md-3"><label class="form-label">דרישות מערכת (6 נק')</label><input type="number" class="form-control" id="b4" max="6" min="0"></div>
-            <div class="col-md-3"><label class="form-label">טופולוגיה (6 נק')</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
-            <div class="col-md-3"><label class="form-label">תיעוד רכיבים (20 נק')</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
-            <div class="col-md-3"><label class="form-label">הגדרות CLI וכו' (30 נק')</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
-            <div class="col-md-3"><label class="form-label">ניתוב\מטרו\צילומי מסך (20 נק')</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
-            <div class="col-md-3"><label class="form-label">פקודות show ורפלקציה (10 נק')</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
+        <h4 class="form-title">חלק הספר (30%)</h4>
+        <div class="row">
+            <div class="col-md-3"><label>מבוא (2 נק')</label><input type="number" class="form-control" id="b1" max="2" min="0"></div>
+            <div class="col-md-3"><label>תוכן עניינים (2 נק')</label><input type="number" class="form-control" id="b2" max="2" min="0"></div>
+            <div class="col-md-3"><label>אודות ותרשים (4 נק')</label><input type="number" class="form-control" id="b3" max="4" min="0"></div>
+            <div class="col-md-3"><label>דרישות מערכת (6 נק')</label><input type="number" class="form-control" id="b4" max="6" min="0"></div>
+            <div class="col-md-3"><label>טופולוגיה (6 נק')</label><input type="number" class="form-control" id="b5" max="6" min="0"></div>
+            <div class="col-md-3"><label>תיעוד רכיבים (20 נק')</label><input type="number" class="form-control" id="b6" max="20" min="0"></div>
+            <div class="col-md-3"><label>הגדרות CLI וכו' (30 נק')</label><input type="number" class="form-control" id="b7" max="30" min="0"></div>
+            <div class="col-md-3"><label>ניתוב/מטרו/צילומים (20 נק')</label><input type="number" class="form-control" id="b8" max="20" min="0"></div>
+            <div class="col-md-3"><label>פקודות show ורפלקציה (10 נק')</label><input type="number" class="form-control" id="b9" max="10" min="0"></div>
         </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה"כ חלק הספר: </span>
-            <span id="bookTotalDisplay" class="mark-display">0</span>
+            <strong>סה"כ חלק הספר:</strong> <span id="bookTotalDisplay" class="mark-display">0</span>
         </div>
-          <div class="text-center mb-4">
-            <button class="btn btn-warning me-2" onclick="saveBookMark()">שמור ציון חלק הספר</button>
-          </div>
     </div>
 
     <div class="form-section">
-        <h3 class="form-title">חלק ההצגה (70%)</h3>
-        <div class="row g-3" id="presentationInputs">
-            <div class="col-md-3"><label class="form-label">שליטה בפרויקט (5 נק')</label><input type="number" class="form-control" id="p1" max="5" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p2" max="10" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p3" max="10" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p4" max="10" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p5" max="15" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p6" max="15" min="0"></div>
-            <div class="col-md-3"><label class="form-label">שאלה רמה ב/ג (15 נק')</label><input type="number" class="form-control" id="p7" max="15" min="0"></div>
-            <div class="col-md-3"><label class="form-label">מטלת ביצוע (20 נק')</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
+        <h4 class="form-title">חלק ההצגה (70%)</h4>
+        <div class="row">
+            <div class="col-md-3"><label>שליטה בפרויקט (5 נק')</label><input type="number" class="form-control" id="p1" max="5" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p2" max="10" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p3" max="10" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה א (10 נק')</label><input type="number" class="form-control" id="p4" max="10" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p5" max="15" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה ב (15 נק')</label><input type="number" class="form-control" id="p6" max="15" min="0"></div>
+            <div class="col-md-3"><label>שאלה רמה ב/ג (15 נק')</label><input type="number" class="form-control" id="p7" max="15" min="0"></div>
+            <div class="col-md-3"><label>מטלת ביצוע (20 נק')</label><input type="number" class="form-control" id="p8" max="20" min="0"></div>
         </div>
         <div class="mt-3 text-end">
-            <span class="fw-bold">סה"כ חלק ההצגה: </span>
-            <span id="presentationTotalDisplay" class="mark-display">0</span>
+            <strong>סה"כ חלק ההצגה:</strong> <span id="presentationTotalDisplay" class="mark-display">0</span>
         </div>
-    </div>
-   <div class="form-section">
-    <div class="text-center">
-        <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
-    </div>
-
-    <div class="text-center mt-4">
-        <span class="fw-bold">הציון הסופי:</span>
-        <span id="finalDisplay" class="mark-display">0</span>
-    </div>
-
-    <div class="text-center mt-4 d-print-block">
-        <p class="fw-bold">בית הספר: <span id="schoolNameDisplay"></span></p>
-        <p class="fw-bold">סמל בית הספר: <span id="schoolCodeDisplay"></span></p>
-        <p class="fw-bold">תאריך הבחינה: <span id="examDateDisplay"></span></p>
     </div>
 
     <div class="text-center mb-4">
-        <button class="btn btn-success mb-3" onclick="window.print()">שמור כ-PDF / הדפס</button>
+        <button class="btn btn-primary btn-lg" onclick="calculateFinal()">חשב ציון סופי</button>
+        <div class="mt-4">
+            <span class="fw-bold">הציון הסופי:</span>
+            <span id="finalDisplay" class="mark-display">0</span>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success" onclick="window.print()">שמור כ-PDF / הדפס</button>
+        </div>
     </div>
-   </div>
-
-    <!-- أزرار حفظ وتحميل بيانات الطالب -->
-
-
-    <footer class="text-center mt-5 pt-3 custom-footer">
-        <p class="mb-0">Nassar Wafik © 2024 - 2025</p>
-    </footer>
 </div>
 
 <script>
@@ -181,9 +143,8 @@
     }
 
     function clampInputs() {
-        const inputs = document.querySelectorAll("input[type='number']");
-        inputs.forEach(input => {
-            input.addEventListener('input', () => {
+        document.querySelectorAll("input[type='number']").forEach(input => {
+            input.addEventListener("input", () => {
                 const val = parseFloat(input.value);
                 const max = parseFloat(input.max);
                 const min = parseFloat(input.min);
@@ -195,79 +156,63 @@
     }
 
     function updateTotals() {
-        const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
-        const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
-        const bookTotal = sumMarks(bookIds);
-        const presTotal = sumMarks(presIds);
-        document.getElementById("bookTotalDisplay").textContent = bookTotal;
-        document.getElementById("presentationTotalDisplay").textContent = presTotal;
+        const bookIds = ["b1","b2","b3","b4","b5","b6","b7","b8","b9"];
+        const presIds = ["p1","p2","p3","p4","p5","p6","p7","p8"];
+        document.getElementById("bookTotalDisplay").textContent = sumMarks(bookIds);
+        document.getElementById("presentationTotalDisplay").textContent = sumMarks(presIds);
     }
 
     function calculateFinal() {
-        const studentId = document.getElementById("studentId").value;
-        if (!/^\d{9}$/.test(studentId)) {
-            alert("תעודת זהות חייבת להכיל בדיוק 9 ספרות");
-            return;
-        }
-
-        const schoolCode = document.getElementById("schoolCode").value;
-        if (!/^\d{6}$/.test(schoolCode)) {
-            alert("סמל בית הספר חייב להכיל בדיוק 6 ספרות");
-            return;
-        }
-
-        const allInputs = document.querySelectorAll("input[type='number']");
-        for (let input of allInputs) {
-            const val = parseFloat(input.value);
-            const max = parseFloat(input.max);
-            const min = parseFloat(input.min);
-            if (val < min || val > max) {
-                alert(`הציון בשדה '${input.previousElementSibling.textContent.trim()}' חייב להיות בין ${min} ל-${max}`);
-                return;
-            }
-        }
-
-        const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
-        const presIds = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
-        const bookTotal = sumMarks(bookIds);
-        const presTotal = sumMarks(presIds);
-        const finalMark = Math.round(bookTotal * 0.3 + presTotal * 0.7);
-        document.getElementById("bookTotalDisplay").textContent = bookTotal;
-        document.getElementById("presentationTotalDisplay").textContent = presTotal;
+        const book = parseFloat(document.getElementById("bookTotalDisplay").textContent) || 0;
+        const pres = parseFloat(document.getElementById("presentationTotalDisplay").textContent) || 0;
+        const finalMark = Math.round(book * 0.3 + pres * 0.7);
         document.getElementById("finalDisplay").textContent = finalMark;
-
-        document.getElementById("schoolNameDisplay").textContent = document.getElementById("schoolName").value;
-        document.getElementById("schoolCodeDisplay").textContent = schoolCode;
-        document.getElementById("examDateDisplay").textContent = document.getElementById("examDate").value;
     }
+
+    document.getElementById("studentId").addEventListener("input", function () {
+        const id = this.value;
+        if (/^\d{9}$/.test(id)) loadStudentData(id);
+    });
 
     function saveBookMark() {
         const id = document.getElementById("studentId").value;
         const name = document.getElementById("studentName").value;
-        const bookIds = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
+        const schoolName = document.getElementById("schoolName").value;
+        const schoolCode = document.getElementById("schoolCode").value;
+        const examDate = document.getElementById("examDate").value;
+
+        const bookIds = ["b1","b2","b3","b4","b5","b6","b7","b8","b9"];
+        const bookMarks = {};
+        bookIds.forEach(bid => bookMarks[bid] = parseFloat(document.getElementById(bid).value) || 0);
         const bookMark = sumMarks(bookIds);
 
-        if (!/^\d{9}$/.test(id)) {
-            alert("תעודת זהות חייבת להכיל 9 ספרות");
-            return;
-        }
-
         const data = JSON.parse(localStorage.getItem("studentsData") || "{}");
-        data[id] = { studentName: name, bookMark: bookMark };
+        data[id] = {
+            studentName: name,
+            bookMark: bookMark,
+            bookMarks: bookMarks,
+            schoolName,
+            schoolCode,
+            examDate
+        };
         localStorage.setItem("studentsData", JSON.stringify(data));
-
-        alert("ציון חלק הספר נשמר בהצלחה");
+        alert("הנתונים נשמרו בהצלחה");
     }
 
-    function loadStudentData() {
-        const id = document.getElementById("studentId").value;
+    function loadStudentData(id) {
         const data = JSON.parse(localStorage.getItem("studentsData") || "{}");
         if (data[id]) {
-            document.getElementById("studentName").value = data[id].studentName;
-            document.getElementById("bookTotalDisplay").textContent = data[id].bookMark;
-            alert("הנתונים נטענו בהצלחה. ניתן להמשיך לחלק ההצגה.");
-        } else {
-            alert("לא נמצאו נתונים לתעודת זהות זו.");
+            const s = data[id];
+            document.getElementById("studentName").value = s.studentName;
+            document.getElementById("bookTotalDisplay").textContent = s.bookMark;
+            Object.keys(s.bookMarks || {}).forEach(key => {
+                if (document.getElementById(key)) {
+                    document.getElementById(key).value = s.bookMarks[key];
+                }
+            });
+            document.getElementById("schoolName").value = s.schoolName || "";
+            document.getElementById("schoolCode").value = s.schoolCode || "";
+            document.getElementById("examDate").value = s.examDate || "";
         }
     }
 
